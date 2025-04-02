@@ -14,10 +14,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   basePath: '',
-  assetPrefix: '',
-  generateStaticParams: async () => {
-    return []
-  }
+  assetPrefix: ''
 }
 
 module.exports = nextConfig 
