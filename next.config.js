@@ -15,10 +15,14 @@ const nextConfig = {
   },
   basePath: '',
   assetPrefix: '',
-  generateStaticParams: async () => {
-    return {
-      '/': {},
+  webpack: (config) => {
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+      path: false,
+      canvas: false,
     }
+    return config
   },
 }
 

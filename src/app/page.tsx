@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import { useDropzone } from 'react-dropzone'
@@ -127,7 +127,7 @@ export default function Home() {
 
   const convertToHtml = () => {
     try {
-      const rawHtml = marked(markdown)
+      const rawHtml = marked.parse(markdown) as string
       const sanitizedHtml = DOMPurify.sanitize(rawHtml)
       setHtml(sanitizedHtml)
       setError('')
