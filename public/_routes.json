@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "include": ["/*"],
+  "exclude": [],
+  "headers": {
+    "Cache-Control": "public, max-age=0, must-revalidate"
+  }
+} 

@@ -1,0 +1,17 @@
+[build]
+command = "npm run build"
+publish = "out"
+watch_dir = "src"
+
+[build.environment]
+NODE_VERSION = "18"
+
+[site]
+bucket = "./out"
+
+[env.production]
+name = "markdown-converter"
+route = "markdown2pdf.win/*"
+
+[env.staging]
+name = "markdown-converter-staging" 

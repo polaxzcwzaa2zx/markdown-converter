@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "steps": [
+    {
+      "name": "Install dependencies",
+      "command": "npm install"
+    },
+    {
+      "name": "Build application",
+      "command": "npm run build",
+      "environment": {
+        "NODE_VERSION": "18"
+      }
+    }
+  ],
+  "artifacts": {
+    "baseDirectory": "out",
+    "include": ["**/*"],
+    "exclude": []
+  }
+} 
