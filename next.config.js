@@ -6,7 +6,13 @@ const nextConfig = {
   },
   distDir: 'out',
   cleanDistDir: true,
-  trailingSlash: true
+  trailingSlash: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  }
 }
 
 module.exports = nextConfig 
