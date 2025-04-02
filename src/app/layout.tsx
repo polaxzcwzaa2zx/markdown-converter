@@ -6,8 +6,8 @@ import { Providers } from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'MdConverter - Markdown to PDF/DOCX Converter',
-  description: 'Convert markdown to PDF or DOCX with one click',
+  title: 'Markdown to PDF Converter',
+  description: 'Convert your Markdown files to PDF with ease',
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={inter.className}>{children}</body>
     </html>
   )
 }
