@@ -1,556 +1,336 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { marked } from 'marked'
 import DOMPurify from 'dompurify'
 import { useDropzone } from 'react-dropzone'
-import { useCallback } from 'react'
-import { useDropzone as useDropzoneOriginal } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal2 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal3 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal4 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal5 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal6 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal7 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal8 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal9 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal10 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal11 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal12 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal13 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal14 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal15 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal16 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal17 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal18 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal19 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal20 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal21 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal22 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal23 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal24 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal25 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal26 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal27 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal28 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal29 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal30 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal31 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal32 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal33 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal34 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal35 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal36 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal37 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal38 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal39 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal40 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal41 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal42 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal43 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal44 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal45 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal46 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal47 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal48 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal49 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal50 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal51 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal52 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal53 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal54 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal55 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal56 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal57 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal58 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal59 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal60 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal61 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal62 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal63 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal64 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal65 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal66 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal67 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal68 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal69 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal70 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal71 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal72 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal73 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal74 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal75 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal76 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal77 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal78 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal79 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal80 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal81 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal82 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal83 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal84 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal85 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal86 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal87 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal88 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal89 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal90 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal91 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal92 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal93 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal94 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal95 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal96 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal97 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal98 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal99 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal100 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal101 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal102 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal103 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal104 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal105 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal106 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal107 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal108 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal109 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal110 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal111 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal112 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal113 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal114 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal115 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal116 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal117 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal118 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal119 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal120 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal121 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal122 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal123 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal124 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal125 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal126 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal127 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal128 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal129 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal130 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal131 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal132 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal133 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal134 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal135 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal136 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal137 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal138 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal139 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal140 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal141 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal142 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal143 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal144 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal145 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal146 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal147 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal148 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal149 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal150 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal151 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal152 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal153 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal154 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal155 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal156 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal157 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal158 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal159 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal160 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal161 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal162 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal163 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal164 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal165 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal166 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal167 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal168 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal169 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal170 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal171 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal172 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal173 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal174 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal175 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal176 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal177 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal178 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal179 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal180 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal181 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal182 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal183 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal184 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal185 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal186 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal187 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal188 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal189 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal190 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal191 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal192 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal193 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal194 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal195 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal196 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal197 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal198 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal199 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal200 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal201 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal202 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal203 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal204 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal205 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal206 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal207 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal208 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal209 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal210 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal211 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal212 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal213 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal214 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal215 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal216 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal217 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal218 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal219 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal220 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal221 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal222 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal223 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal224 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal225 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal226 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal227 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal228 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal229 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal230 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal231 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal232 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal233 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal234 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal235 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal236 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal237 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal238 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal239 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal240 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal241 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal242 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal243 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal244 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal245 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal246 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal247 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal248 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal249 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal250 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal251 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal252 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal253 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal254 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal255 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal256 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal257 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal258 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal259 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal260 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal261 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal262 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal263 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal264 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal265 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal266 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal267 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal268 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal269 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal270 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal271 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal272 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal273 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal274 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal275 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal276 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal277 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal278 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal279 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal280 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal281 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal282 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal283 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal284 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal285 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal286 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal287 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal288 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal289 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal290 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal291 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal292 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal293 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal294 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal295 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal296 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal297 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal298 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal299 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal300 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal301 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal302 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal303 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal304 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal305 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal306 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal307 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal308 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal309 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal310 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal311 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal312 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal313 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal314 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal315 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal316 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal317 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal318 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal319 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal320 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal321 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal322 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal323 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal324 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal325 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal326 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal327 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal328 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal329 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal330 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal331 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal332 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal333 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal334 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal335 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal336 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal337 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal338 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal339 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal340 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal341 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal342 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal343 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal344 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal345 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal346 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal347 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal348 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal349 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal350 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal351 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal352 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal353 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal354 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal355 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal356 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal357 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal358 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal359 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal360 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal361 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal362 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal363 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal364 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal365 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal366 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal367 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal368 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal369 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal370 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal371 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal372 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal373 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal374 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal375 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal376 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal377 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal378 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal379 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal380 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal381 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal382 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal383 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal384 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal385 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal386 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal387 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal388 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal389 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal390 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal391 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal392 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal393 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal394 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal395 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal396 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal397 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal398 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal399 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal400 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal401 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal402 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal403 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal404 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal405 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal406 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal407 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal408 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal409 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal410 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal411 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal412 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal413 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal414 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal415 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal416 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal417 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal418 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal419 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal420 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal421 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal422 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal423 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal424 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal425 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal426 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal427 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal428 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal429 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal430 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal431 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal432 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal433 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal434 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal435 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal436 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal437 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal438 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal439 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal440 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal441 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal442 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal443 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal444 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal445 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal446 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal447 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal448 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal449 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal450 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal451 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal452 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal453 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal454 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal455 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal456 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal457 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal458 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal459 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal460 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal461 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal462 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal463 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal464 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal465 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal466 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal467 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal468 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal469 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal470 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal471 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal472 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal473 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal474 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal475 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal476 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal477 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal478 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal479 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal480 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal481 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal482 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal483 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal484 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal485 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal486 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal487 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal488 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal489 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal490 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal491 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal492 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal493 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal494 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal495 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal496 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal497 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal498 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal499 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal500 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal501 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal502 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal503 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal504 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal505 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal506 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal507 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal508 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal509 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal510 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal511 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal512 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal513 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal514 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal515 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal516 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal517 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal518 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal519 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal520 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal521 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal522 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal523 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal524 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal525 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal526 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal527 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal528 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal529 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal530 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal531 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal532 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal533 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal534 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal535 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal536 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal537 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal538 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal539 } from 'react-dropzone'
-import { useDropzone as useDropzoneOriginal540 } from 'react-dropzone'
+import { FaFileUpload, FaFilePdf, FaFileWord, FaFileAlt, FaTrash, FaCopy, FaDownload, FaLanguage } from 'react-icons/fa'
+import { toast } from 'react-hot-toast'
+import { saveAs } from 'file-saver'
+import { Document, Packer, Paragraph, TextRun, HeadingLevel, AlignmentType, PageBreakBefore } from 'docx'
+import { jsPDF } from 'jspdf'
+import 'jspdf-autotable'
+import { useTranslation } from 'react-i18next'
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+
+// 初始化 i18n
+i18n.use(initReactI18next).init({
+  resources: {
+    en: {
+      translation: {
+        title: 'Markdown to PDF Converter',
+        subtitle: 'Convert your Markdown files to PDF with ease',
+        dropzone: 'Drag and drop your Markdown file here, or click to select',
+        preview: 'Preview',
+        export: 'Export',
+        exportAs: 'Export as',
+        copy: 'Copy',
+        copied: 'Copied!',
+        clear: 'Clear',
+        clearConfirm: 'Are you sure you want to clear the content?',
+        clearSuccess: 'Content cleared successfully',
+        exportSuccess: 'File exported successfully',
+        exportError: 'Error exporting file',
+        uploadError: 'Error uploading file',
+        invalidFile: 'Invalid file type. Please upload a Markdown file.',
+        fileTooLarge: 'File is too large. Maximum size is 10MB.',
+        noContent: 'No content to export',
+        loading: 'Loading...',
+        error: 'Error',
+        success: 'Success',
+        warning: 'Warning',
+        info: 'Info',
+        close: 'Close',
+        cancel: 'Cancel',
+        confirm: 'Confirm',
+        delete: 'Delete',
+        edit: 'Edit',
+        save: 'Save',
+      }
+    },
+    zh: {
+      translation: {
+        title: 'Markdown 转 PDF 转换器',
+        subtitle: '轻松将 Markdown 文件转换为 PDF',
+        dropzone: '拖放 Markdown 文件到这里，或点击选择',
+        preview: '预览',
+        export: '导出',
+        exportAs: '导出为',
+        copy: '复制',
+        copied: '已复制！',
+        clear: '清除',
+        clearConfirm: '确定要清除内容吗？',
+        clearSuccess: '内容已清除',
+        exportSuccess: '文件导出成功',
+        exportError: '导出文件时出错',
+        uploadError: '上传文件时出错',
+        invalidFile: '无效的文件类型。请上传 Markdown 文件。',
+        fileTooLarge: '文件太大。最大大小为 10MB。',
+        noContent: '没有可导出的内容',
+        loading: '加载中...',
+        error: '错误',
+        success: '成功',
+        warning: '警告',
+        info: '信息',
+        close: '关闭',
+        cancel: '取消',
+        confirm: '确认',
+        delete: '删除',
+        edit: '编辑',
+        save: '保存',
+      }
+    }
+  },
+  lng: 'en',
+  fallbackLng: 'en',
+  interpolation: {
+    escapeValue: false
+  }
+})
 
 export default function Home() {
+  const [markdown, setMarkdown] = useState('')
+  const [html, setHtml] = useState('')
+  const [lang, setLang] = useState<'en' | 'zh'>('en')
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const { t } = useTranslation()
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    const file = acceptedFiles[0]
+    if (file) {
+      if (file.size > 10 * 1024 * 1024) {
+        toast.error(t('fileTooLarge'))
+        return
+      }
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        const content = e.target?.result as string
+        setMarkdown(content)
+        setError('')
+        setSuccess('')
+      }
+      reader.readAsText(file)
+    }
+  }, [t])
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: {
+      'text/markdown': ['.md', '.markdown'],
+    },
+    multiple: false,
+  })
+
+  const convertToHtml = () => {
+    try {
+      const rawHtml = marked(markdown)
+      const sanitizedHtml = DOMPurify.sanitize(rawHtml)
+      setHtml(sanitizedHtml)
+      setError('')
+      setSuccess(t('success'))
+    } catch (err) {
+      setError(t('error'))
+      setSuccess('')
+    }
+  }
+
+  const exportToPDF = async () => {
+    try {
+      setIsLoading(true)
+      const html2pdf = (await import('html2pdf.js')).default
+      const element = document.createElement('div')
+      element.innerHTML = html
+      element.style.padding = '20px'
+      element.style.fontFamily = 'Arial, sans-serif'
+      element.style.lineHeight = '1.6'
+      element.style.color = '#333'
+      element.style.maxWidth = '800px'
+      element.style.margin = '0 auto'
+      element.style.backgroundColor = '#fff'
+      element.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)'
+      element.style.borderRadius = '5px'
+      element.style.border = '1px solid #ddd'
+
+      const opt = {
+        margin: 1,
+        filename: 'document.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { 
+          scale: 2,
+          useCORS: true,
+          logging: true,
+          letterRendering: true
+        },
+        jsPDF: { 
+          unit: 'in', 
+          format: 'a4', 
+          orientation: 'portrait' 
+        }
+      }
+
+      await html2pdf().set(opt).from(element).save()
+      setError('')
+      setSuccess(t('exportSuccess'))
+    } catch (err) {
+      setError(t('exportError'))
+      setSuccess('')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const exportToDocx = async () => {
+    try {
+      setIsLoading(true)
+      const doc = new Document({
+        sections: [{
+          properties: {},
+          children: [
+            new Paragraph({
+              children: [
+                new TextRun({
+                  text: html.replace(/<[^>]*>/g, ''),
+                  size: 24,
+                }),
+              ],
+            }),
+          ],
+        }],
+      })
+
+      const buffer = await Packer.toBlob(doc)
+      saveAs(buffer, 'document.docx')
+      setError('')
+      setSuccess(t('exportSuccess'))
+    } catch (err) {
+      setError(t('exportError'))
+      setSuccess('')
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  const clearContent = () => {
+    if (window.confirm(t('clearConfirm'))) {
+      setMarkdown('')
+      setHtml('')
+      setError('')
+      setSuccess('')
+      toast.success(t('clearSuccess'))
+    }
+  }
+
+  const copyContent = () => {
+    navigator.clipboard.writeText(markdown)
+    toast.success(t('copied'))
+  }
+
+  useEffect(() => {
+    const userLang = navigator.language.startsWith('zh') ? 'zh' : 'en'
+    setLang(userLang)
+  }, [])
+
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h1 style={{ color: 'red', fontSize: '32px' }}>TEST PAGE</h1>
-      <p style={{ fontSize: '24px' }}>Time: {new Date().toLocaleString()}</p>
-    </div>
+    <main className="min-h-screen bg-gray-50 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">{t('title')}</h1>
+          <p className="text-xl text-gray-600">{t('subtitle')}</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <div
+              {...getRootProps()}
+              className={`border-2 border-dashed rounded-lg p-8 text-center cursor-pointer transition-colors ${
+                isDragActive ? 'border-blue-500 bg-blue-50' : 'border-gray-300 hover:border-gray-400'
+              }`}
+            >
+              <input {...getInputProps()} ref={fileInputRef} />
+              <FaFileUpload className="mx-auto h-12 w-12 text-gray-400 mb-4" />
+              <p className="text-gray-600">{t('dropzone')}</p>
+            </div>
+
+            {markdown && (
+              <div className="space-y-4">
+                <div className="flex space-x-4">
+                  <button
+                    onClick={convertToHtml}
+                    className="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors flex items-center justify-center"
+                  >
+                    <FaFileAlt className="mr-2" />
+                    {t('preview')}
+                  </button>
+                  <button
+                    onClick={copyContent}
+                    className="flex-1 bg-gray-500 text-white py-2 px-4 rounded hover:bg-gray-600 transition-colors flex items-center justify-center"
+                  >
+                    <FaCopy className="mr-2" />
+                    {t('copy')}
+                  </button>
+                  <button
+                    onClick={clearContent}
+                    className="flex-1 bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition-colors flex items-center justify-center"
+                  >
+                    <FaTrash className="mr-2" />
+                    {t('clear')}
+                  </button>
+                </div>
+
+                {html && (
+                  <div className="space-y-4">
+                    <h3 className="text-lg font-semibold text-gray-700">{t('exportAs')}</h3>
+                    <div className="flex space-x-4">
+                      <button
+                        onClick={exportToPDF}
+                        disabled={isLoading}
+                        className="flex-1 bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600 transition-colors flex items-center justify-center disabled:opacity-50"
+                      >
+                        <FaFilePdf className="mr-2" />
+                        PDF
+                      </button>
+                      <button
+                        onClick={exportToDocx}
+                        disabled={isLoading}
+                        className="flex-1 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-colors flex items-center justify-center disabled:opacity-50"
+                      >
+                        <FaFileWord className="mr-2" />
+                        DOCX
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {error && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                {error}
+              </div>
+            )}
+
+            {success && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded">
+                {success}
+              </div>
+            )}
+          </div>
+
+          {html && (
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h2 className="text-xl font-semibold mb-4">{t('preview')}</h2>
+              <div
+                className="prose max-w-none"
+                dangerouslySetInnerHTML={{ __html: html }}
+              />
+            </div>
+          )}
+        </div>
+      </div>
+    </main>
   )
 }

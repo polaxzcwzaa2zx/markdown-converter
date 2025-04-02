@@ -14,7 +14,12 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   basePath: '',
-  assetPrefix: ''
+  assetPrefix: '',
+  generateStaticParams: async () => {
+    return {
+      '/': {},
+    }
+  },
 }
 
 module.exports = nextConfig 
