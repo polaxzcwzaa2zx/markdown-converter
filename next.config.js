@@ -12,6 +12,11 @@ const nextConfig = {
   },
   typescript: {
     ignoreBuildErrors: true,
+  },
+  basePath: '',
+  assetPrefix: '',
+  generateStaticParams: async () => {
+    return []
   }
 }
 
